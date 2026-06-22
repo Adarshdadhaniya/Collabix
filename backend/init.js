@@ -1,10 +1,12 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const axios = require('axios');
 const User = require('./models/User');
 const StudentProfile = require('./models/StudentProfile');
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/collabix';
+const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8000';
 
 const COLLEGE_STRUCTURE = {
   "Computer Science": {
@@ -126,6 +128,26 @@ const seedDatabase = async () => {
     // Insert in batches if necessary, but 200 is fine for a single insertMany
     await User.insertMany(studentUsers);
     
+    // Generate embeddings for the profiles
+    let embeddings = [];
+    try {
+      console.log('Generating skill embeddings for students via AI Service...');
+      const textsToEmbed = studentProfilesData.map(p => p.skills.join(' '));
+      const embedResponse = await axios.post(`${AI_SERVICE_URL}/embed`, {
+        texts: textsToEmbed
+      });
+      embeddings = embedResponse.data.embeddings;
+      console.log(`Successfully generated ${embeddings.length} skill embeddings.`);
+    } catch (embedErr) {
+      console.warn('⚠️ Warning: Failed to generate skill embeddings via AI Service:', embedErr.message);
+      console.warn('Skill profiles will be saved with empty embeddings.');
+    }
+
+    // Assign embeddings to profiles
+    for (let i = 0; i < studentProfilesData.length; i++) {
+      studentProfilesData[i].skillEmbedding = embeddings[i] || [];
+    }
+
     console.log(`Saving ${studentProfilesData.length} student profiles...`);
     await StudentProfile.insertMany(studentProfilesData);
 
