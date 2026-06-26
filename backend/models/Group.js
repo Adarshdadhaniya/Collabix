@@ -38,6 +38,26 @@ const GroupSchema = new mongoose.Schema({
     isLocked: {
         type: Boolean,
         default: false
+    },
+    projectTitle: {
+        type: String,
+        default: ''
+    },
+    projectDescription: {
+        type: String,
+        default: ''
+    },
+    problemStatement: {
+        type: String,
+        default: ''
+    },
+    techStack: {
+        type: [String],
+        default: []
+    },
+    tools: {
+        type: [String],
+        default: []
     }
 }, {
     timestamps: true

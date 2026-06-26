@@ -1,8 +1,8 @@
 // scripts/populate_skills.js
 
-const mongoose = require('mongoose');
+const mongoose = require('../backend/node_modules/mongoose');
 const Student = require('../database/init');
-const dotenv = require('dotenv');
+const dotenv = require('../backend/node_modules/dotenv');
 
 // We need to load environment variables from backend/.env if possible, or provide a fallback connection string
 dotenv.config({ path: '../backend/.env' });

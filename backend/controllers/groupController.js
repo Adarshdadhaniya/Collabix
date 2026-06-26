@@ -285,3 +285,80 @@ exports.getGroupById = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
+
+// @desc    Update Group Project Proposal
+// @route   PUT /api/groups/:groupId/proposal
+// @access  Private (Group Member)
+exports.updateProposal = async (req, res) => {
+    try {
+        const { projectTitle, projectDescription, problemStatement, techStack, tools } = req.body;
+        
+        const group = await Group.findById(req.params.groupId);
+        if (!group) return res.status(404).json({ message: 'Group not found' });
+
+        // Ensure user is a member
+        const isMember = group.members.some(m => m.student.toString() === req.user.id);
+        if (!isMember && req.user.role !== 'admin' && req.user.role !== 'teacher') {
+            return res.status(403).json({ message: 'Only group members can update the proposal' });
+        }
+
+        group.projectTitle = projectTitle !== undefined ? projectTitle : group.projectTitle;
+        group.projectDescription = projectDescription !== undefined ? projectDescription : group.projectDescription;
+        group.problemStatement = problemStatement !== undefined ? problemStatement : group.problemStatement;
+        group.techStack = techStack !== undefined ? techStack : group.techStack;
+        group.tools = tools !== undefined ? tools : group.tools;
+
+        await group.save();
+        res.json(group);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+};
+
+// @desc    Evaluate Team Composition against Proposal
+// @route   POST /api/groups/:groupId/evaluate
+// @access  Private (Teacher/Admin)
+exports.evaluateTeam = async (req, res) => {
+    try {
+        if (req.user.role !== 'admin' && req.user.role !== 'teacher') {
+            return res.status(403).json({ message: 'Only teachers and admins can evaluate teams' });
+        }
+
+        const group = await Group.findById(req.params.groupId).populate('members.student', 'name');
+        if (!group) return res.status(404).json({ message: 'Group not found' });
+
+        // Check if proposal fields are filled
+        if (!group.projectTitle || !group.projectDescription || !group.problemStatement || group.techStack.length === 0) {
+            return res.status(400).json({ message: 'Group project proposal must be fully filled out first.' });
+        }
+
+        // Get full member details from StudentProfile
+        const memberIds = group.members.map(m => m.student._id || m.student);
+        const profiles = await StudentProfile.find({ user: { $in: memberIds } }).populate('user', 'name');
+
+        const project_data = {
+            projectTitle: group.projectTitle,
+            projectDescription: group.projectDescription,
+            problemStatement: group.problemStatement,
+            techStack: group.techStack,
+            tools: group.tools
+        };
+
+        const axios = require('axios');
+        const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://127.0.0.1:8000';
+
+        const aiResponse = await axios.post(`${AI_SERVICE_URL}/evaluate-team`, {
+            project_data,
+            members: profiles
+        });
+
+        res.json(aiResponse.data);
+    } catch (err) {
+        console.error(err.message);
+        if (err.response && err.response.data) {
+            return res.status(500).json({ message: 'AI Service Error', details: err.response.data });
+        }
+        res.status(500).send('Server Error');
+    }
+};

@@ -12,6 +12,7 @@ import GroupDashboard from './pages/GroupDashboard';
 import ProjectGroups from './pages/ProjectGroups';
 import ProjectAdminDetails from './pages/ProjectAdminDetails';
 import StudentRequests from './pages/StudentRequests';
+import RoomBookingSystem from './pages/RoomBookingSystem';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               
               <Route path="admin/dashboard" element={<AdminDashboard />} />
               <Route path="admin/project/:projectId" element={<ProjectAdminDetails />} />
+              <Route path="admin/room-booking" element={<RoomBookingSystem />} />
             </Route>
           </Routes>
         </main>

@@ -28,7 +28,8 @@ class StudentManager:
         mongo_uri = os.environ.get("MONGO_URI", "mongodb://127.0.0.1:27017/collabix")
         self.client = MongoClient(mongo_uri)
         # Fallback to 'collabix' if default is missing in connection string
-        self.db = self.client.get_default_database() or self.client['collabix']
+        default_db = self.client.get_default_database(default=None)
+        self.db = default_db if default_db is not None else self.client['collabix']
         # The Mongoose model 'Student' created a 'students' collection
         self.collection = self.db['students']
         self.objects = StudentQuerySet(self.collection)

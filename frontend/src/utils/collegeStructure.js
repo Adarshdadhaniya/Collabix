@@ -11,13 +11,13 @@ export const COLLEGE_STRUCTURE = {
     3: ["A", "B", "C"],
     4: ["A", "B", "C"]
   },
-  "Electronics": {
+  "Electrical & Electronics Engineering": {
     1: ["A", "B"],
     2: ["A", "B"],
     3: ["A", "B"],
     4: ["A", "B"]
   },
-  "Mechanical": {
+  "Mechanical Engineering": {
     1: ["A"],
     2: ["A"],
     3: ["A"],

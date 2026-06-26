@@ -1,0 +1,704 @@
+{
+  "frontend_developer": {
+    "primary_domain": "Frontend Development",
+    "strongest_skill": "JavaScript",
+    "years_of_experience": 2,
+    "programming_languages": "JavaScript (expert, 2 years, 5 projects), TypeScript (advanced, 2 years, 4 projects), HTML5 (expert, 2 years, 5 projects), CSS3 (expert, 2 years, 5 projects)",
+    "frameworks": "React (advanced, 2 years), Next.js (intermediate, 1 year), Tailwind CSS (advanced, 2 years), Webpack/Vite (intermediate, 1 year)",
+    "databases": "None required at core level",
+    "tools": "Git, npm/yarn, Chrome DevTools, Figma (handoff), Lighthouse, Jest, Cypress",
+    "projects": [
+      {
+        "title": "Responsive Web Application UI",
+        "description": "Built a fully responsive, accessible multi-page web application with component-driven architecture, state management, and REST API integration.",
+        "role": "Frontend Developer",
+        "complexity": "7/10",
+        "technologies": "JavaScript, TypeScript, React, Next.js, CSS3, REST APIs"
+      },
+      {
+        "title": "Component Library & Design System",
+        "description": "Developed a reusable UI component library with Storybook documentation, WCAG-compliant accessibility, and cross-browser compatibility.",
+        "role": "Frontend Developer",
+        "complexity": "7/10",
+        "technologies": "React, TypeScript, Tailwind CSS, Storybook, Jest"
+      }
+    ],
+    "technical_interests": "Frontend Architecture, React Ecosystem, Web Performance, Accessibility (WCAG), CSS Systems, Web Animation",
+    "technical_summary": "Frontend developer with 2 years of experience building responsive, accessible, and performant web interfaces. Strongest expertise in JavaScript and React. Built projects involving component architecture, design systems, and API-driven UIs. Experienced with TypeScript, Next.js, Tailwind CSS, and modern build tooling like Vite."
+  },
+  "backend_developer": {
+    "primary_domain": "Backend Development",
+    "strongest_skill": "REST API Design",
+    "years_of_experience": 2,
+    "programming_languages": "Python (expert, 2 years, 5 projects), SQL (advanced, 2 years, 4 projects), Bash (intermediate, 1 year, 2 projects)",
+    "frameworks": "FastAPI or Django (advanced, 2 years), SQLAlchemy (advanced, 2 years), Celery (intermediate, 1 year), Redis (intermediate, 1 year)",
+    "databases": "PostgreSQL, MongoDB, Redis",
+    "tools": "Docker, Git, Linux, Nginx, Postman, pytest",
+    "projects": [
+      {
+        "title": "RESTful API Service",
+        "description": "Designed and implemented a production-grade REST API with authentication, role-based access control, background jobs, and comprehensive test coverage.",
+        "role": "Backend Developer",
+        "complexity": "8/10",
+        "technologies": "Python, FastAPI, PostgreSQL, Redis, Docker, JWT"
+      },
+      {
+        "title": "Microservices Backend System",
+        "description": "Built inter-service communication with message queues, schema-validated events, and observability tooling.",
+        "role": "Backend Developer",
+        "complexity": "8/10",
+        "technologies": "Python, RabbitMQ, PostgreSQL, Docker, Linux"
+      }
+    ],
+    "technical_interests": "API Design, Distributed Systems, Database Optimization, System Architecture, Caching Strategies, Microservices",
+    "technical_summary": "Backend developer with 2 years of experience building scalable server-side APIs and data-driven services. Strongest expertise in REST API design and Python. Built projects involving authentication systems, microservices, and database-backed APIs. Experienced with FastAPI, PostgreSQL, Docker, and message queue patterns."
+  },
+  "full_stack_developer": {
+    "primary_domain": "Full Stack Development",
+    "strongest_skill": "JavaScript",
+    "years_of_experience": 2,
+    "programming_languages": "JavaScript (expert, 2 years, 5 projects), TypeScript (advanced, 2 years, 4 projects), Python (advanced, 2 years, 3 projects), SQL (intermediate, 2 years, 3 projects)",
+    "frameworks": "React (advanced, 2 years), Node.js/Express or FastAPI (advanced, 2 years), Next.js (intermediate, 1 year), Tailwind CSS (intermediate, 1 year)",
+    "databases": "PostgreSQL, MongoDB",
+    "tools": "Docker, Git, Linux, REST APIs, Postman, Jest, GitHub Actions",
+    "projects": [
+      {
+        "title": "End-to-End Web Application",
+        "description": "Developed a full-stack web app with React frontend, Node.js/Python backend, relational database, authentication, and CI/CD deployment.",
+        "role": "Full Stack Developer",
+        "complexity": "8/10",
+        "technologies": "React, TypeScript, Node.js, PostgreSQL, Docker, JWT"
+      },
+      {
+        "title": "SaaS Feature Delivery",
+        "description": "Owned end-to-end delivery of multiple product features spanning UI components, API endpoints, database migrations, and automated tests.",
+        "role": "Full Stack Developer",
+        "complexity": "7/10",
+        "technologies": "Next.js, Python, FastAPI, PostgreSQL, Git"
+      }
+    ],
+    "technical_interests": "Full Stack Architecture, React Ecosystem, API Design, Database Modeling, DevOps Basics, Cloud Deployment",
+    "technical_summary": "Full stack developer with 2 years of experience owning end-to-end feature development across frontend and backend. Strongest expertise in JavaScript and React. Built projects spanning React UIs, REST APIs, relational databases, and containerized deployments. Experienced with TypeScript, Node.js, Python, PostgreSQL, and Docker."
+  },
+  "react_developer": {
+    "primary_domain": "React / Frontend Development",
+    "strongest_skill": "React",
+    "years_of_experience": 2,
+    "programming_languages": "JavaScript (expert, 2 years, 5 projects), TypeScript (expert, 2 years, 5 projects), HTML5 (advanced, 2 years, 4 projects), CSS3 (advanced, 2 years, 4 projects)",
+    "frameworks": "React (expert, 2 years), Redux/Zustand (advanced, 2 years), Next.js (advanced, 2 years), React Router (expert, 2 years)",
+    "databases": "None required at core level",
+    "tools": "Git, Vite, Storybook, React Testing Library, Jest, Figma (handoff), npm",
+    "projects": [
+      {
+        "title": "Single-Page Application with Complex State",
+        "description": "Built a large-scale React SPA with global state management, code splitting, lazy loading, memoization, and full API integration.",
+        "role": "React Developer",
+        "complexity": "8/10",
+        "technologies": "React, TypeScript, Redux, React Router, REST APIs, Jest"
+      },
+      {
+        "title": "Next.js Server-Side Rendered App",
+        "description": "Developed a performance-optimized Next.js application with SSR, ISR, dynamic routing, and SEO optimization.",
+        "role": "React Developer",
+        "complexity": "8/10",
+        "technologies": "Next.js, TypeScript, Tailwind CSS, Storybook"
+      }
+    ],
+    "technical_interests": "React Ecosystem, State Management, Component Architecture, Web Performance, Next.js, TypeScript",
+    "technical_summary": "React specialist with 2 years of experience building complex SPAs and SSR applications. Strongest expertise in React and TypeScript. Built projects involving advanced state management, routing, server-side rendering, and reusable component systems. Experienced with Redux, Next.js, React Testing Library, and modern React patterns including hooks and context."
+  },
+  "nodejs_developer": {
+    "primary_domain": "Node.js Backend Development",
+    "strongest_skill": "Node.js",
+    "years_of_experience": 2,
+    "programming_languages": "JavaScript (expert, 2 years, 5 projects), TypeScript (advanced, 2 years, 4 projects), SQL (intermediate, 2 years, 3 projects)",
+    "frameworks": "Express.js or NestJS (expert, 2 years), Fastify (intermediate, 1 year), Prisma or Sequelize (advanced, 2 years), Jest/Mocha (advanced, 2 years)",
+    "databases": "PostgreSQL, MongoDB, Redis",
+    "tools": "Docker, Git, Linux, npm, Postman, Nginx, PM2",
+    "projects": [
+      {
+        "title": "Node.js REST API with Authentication",
+        "description": "Built a production-grade Node.js API with JWT authentication, middleware pipeline, database ORM, and full test coverage.",
+        "role": "Node.js Developer",
+        "complexity": "8/10",
+        "technologies": "Node.js, TypeScript, Express, PostgreSQL, Redis, Docker"
+      },
+      {
+        "title": "Real-Time Backend with WebSockets",
+        "description": "Developed an event-driven backend with WebSocket support, async processing, and message queue integration.",
+        "role": "Node.js Developer",
+        "complexity": "8/10",
+        "technologies": "Node.js, WebSockets, RabbitMQ, MongoDB, TypeScript"
+      }
+    ],
+    "technical_interests": "Node.js Internals, Async Architecture, REST APIs, Real-Time Systems, Microservices, TypeScript",
+    "technical_summary": "Node.js backend developer with 2 years of experience building APIs and event-driven systems. Strongest expertise in Node.js and JavaScript/TypeScript. Built projects involving REST APIs, real-time WebSocket backends, and message queue integrations. Experienced with Express, NestJS, PostgreSQL, MongoDB, and Docker."
+  },
+  "python_developer": {
+    "primary_domain": "Python Backend Development",
+    "strongest_skill": "Python",
+    "years_of_experience": 2,
+    "programming_languages": "Python (expert, 2 years, 5 projects), SQL (advanced, 2 years, 4 projects), Bash (intermediate, 1 year, 2 projects)",
+    "frameworks": "FastAPI (expert, 2 years), Django (advanced, 2 years), SQLAlchemy (advanced, 2 years), pytest (expert, 2 years)",
+    "databases": "PostgreSQL, Redis",
+    "tools": "Docker, Git, Linux, virtualenv/poetry, Celery, Pydantic, Postman",
+    "projects": [
+      {
+        "title": "Python REST API with Background Processing",
+        "description": "Built a FastAPI service with async endpoints, background task queue, PostgreSQL persistence, and Pydantic-validated schemas.",
+        "role": "Python Developer",
+        "complexity": "8/10",
+        "technologies": "Python, FastAPI, Celery, PostgreSQL, Redis, Docker"
+      },
+      {
+        "title": "CLI Automation & Scripting Suite",
+        "description": "Developed a collection of production Python scripts and CLI tools for data processing, file I/O, and system automation with full test coverage.",
+        "role": "Python Developer",
+        "complexity": "6/10",
+        "technologies": "Python, pytest, Bash, Linux, Git"
+      }
+    ],
+    "technical_interests": "Python Ecosystem, API Design, Async Programming, Automation, Clean Code, Testing",
+    "technical_summary": "Python developer with 2 years of experience building backend APIs, automation tools, and data-processing pipelines. Strongest expertise in Python and FastAPI. Built projects involving async REST services, background processing, database-backed applications, and CLI tooling. Experienced with Django, SQLAlchemy, Celery, PostgreSQL, and pytest."
+  },
+  "java_developer": {
+    "primary_domain": "Java Backend Development",
+    "strongest_skill": "Java",
+    "years_of_experience": 2,
+    "programming_languages": "Java (expert, 2 years, 5 projects), SQL (advanced, 2 years, 4 projects)",
+    "frameworks": "Spring Boot (expert, 2 years), Spring MVC (advanced, 2 years), Spring Data JPA (advanced, 2 years), JUnit/Mockito (advanced, 2 years)",
+    "databases": "PostgreSQL, MySQL",
+    "tools": "Maven, Docker, Git, IntelliJ IDEA, Postman, Kafka, Redis",
+    "projects": [
+      {
+        "title": "Spring Boot Microservice",
+        "description": "Designed and built a production Spring Boot service with REST APIs, Hibernate ORM, JWT auth, and full unit and integration test coverage.",
+        "role": "Java Developer",
+        "complexity": "8/10",
+        "technologies": "Java, Spring Boot, PostgreSQL, Docker, JUnit, Mockito"
+      },
+      {
+        "title": "Event-Driven Service with Kafka",
+        "description": "Implemented asynchronous inter-service communication using Kafka producers and consumers with schema validation.",
+        "role": "Java Developer",
+        "complexity": "8/10",
+        "technologies": "Java, Spring Boot, Kafka, Redis, Maven"
+      }
+    ],
+    "technical_interests": "Spring Ecosystem, Microservices, JVM Performance, Design Patterns, Enterprise Architecture, Concurrency",
+    "technical_summary": "Java developer with 2 years of experience building enterprise-grade backend services. Strongest expertise in Java and Spring Boot. Built projects involving REST APIs, Hibernate ORM, Kafka event streaming, and multithreaded service architectures. Experienced with Maven, PostgreSQL, Docker, and JUnit/Mockito testing frameworks."
+  },
+  "cpp_developer": {
+    "primary_domain": "C++ Systems Development",
+    "strongest_skill": "C++",
+    "years_of_experience": 2,
+    "programming_languages": "C++ (expert, 2 years, 5 projects), C (advanced, 2 years, 3 projects), Python (intermediate, 1 year, 2 projects)",
+    "frameworks": "STL (expert, 2 years), Google Test (advanced, 2 years), Boost (intermediate, 1 year), CMake (advanced, 2 years)",
+    "databases": "SQLite",
+    "tools": "GDB, Valgrind, Linux, Git, GCC/Clang, CMake, Makefile",
+    "projects": [
+      {
+        "title": "High-Performance Systems Module",
+        "description": "Developed a memory-efficient, multithreaded C++ module with smart pointer resource management, profiling, and Google Test coverage.",
+        "role": "C++ Developer",
+        "complexity": "9/10",
+        "technologies": "C++17, STL, std::thread, Valgrind, GDB, CMake"
+      },
+      {
+        "title": "Network Communication Library",
+        "description": "Built a low-level socket-based communication library with non-blocking I/O, serialization, and cross-platform build support.",
+        "role": "C++ Developer",
+        "complexity": "9/10",
+        "technologies": "C++, POSIX Sockets, Linux, CMake, Boost"
+      }
+    ],
+    "technical_interests": "Systems Programming, Memory Management, Concurrency, Performance Optimization, Low-level Networking, Build Systems",
+    "technical_summary": "C++ developer with 2 years of experience in high-performance systems programming. Strongest expertise in C++ with deep knowledge of memory management, multithreading, and the STL. Built projects involving network libraries, real-time systems, and performance-critical modules. Experienced with CMake, GDB, Valgrind, and Google Test."
+  },
+  "dotnet_developer": {
+    "primary_domain": ".NET / C# Backend Development",
+    "strongest_skill": "C#",
+    "years_of_experience": 2,
+    "programming_languages": "C# (expert, 2 years, 5 projects), SQL (advanced, 2 years, 4 projects)",
+    "frameworks": "ASP.NET Core (expert, 2 years), Entity Framework Core (advanced, 2 years), xUnit/NUnit (advanced, 2 years), Dapper (intermediate, 1 year)",
+    "databases": "SQL Server, PostgreSQL, Redis",
+    "tools": "Visual Studio / Rider, NuGet, Docker, Git, Azure DevOps, Postman",
+    "projects": [
+      {
+        "title": "ASP.NET Core REST API",
+        "description": "Built a layered ASP.NET Core API with EF Core ORM, dependency injection, JWT authentication, and xUnit test coverage.",
+        "role": ".NET Developer",
+        "complexity": "8/10",
+        "technologies": "C#, ASP.NET Core, Entity Framework Core, SQL Server, Docker"
+      },
+      {
+        "title": "Background Processing Service",
+        "description": "Developed a .NET Worker Service with hosted background jobs, Redis caching, and structured logging.",
+        "role": ".NET Developer",
+        "complexity": "7/10",
+        "technologies": "C#, .NET Worker Service, Redis, SQL Server, Azure DevOps"
+      }
+    ],
+    "technical_interests": ".NET Ecosystem, C# Patterns, Async/Await, Microservices, Azure Cloud, Clean Architecture",
+    "technical_summary": "C# / .NET developer with 2 years of experience building enterprise APIs and background services. Strongest expertise in C# and ASP.NET Core. Built projects involving layered API architecture, EF Core, async processing, and cloud-ready deployment. Experienced with SQL Server, Redis, Docker, and Azure DevOps pipelines."
+  },
+  "mobile_app_developer": {
+    "primary_domain": "Cross-Platform Mobile Development",
+    "strongest_skill": "React Native or Flutter",
+    "years_of_experience": 2,
+    "programming_languages": "JavaScript or Dart (expert, 2 years, 4 projects), TypeScript (advanced, 2 years, 3 projects)",
+    "frameworks": "React Native or Flutter (expert, 2 years), Firebase SDK (advanced, 2 years), REST API integration (expert, 2 years)",
+    "databases": "SQLite, Firebase Firestore",
+    "tools": "Git, Xcode, Android Studio, Fastlane, Firebase Crashlytics, Expo",
+    "projects": [
+      {
+        "title": "Cross-Platform Mobile Application",
+        "description": "Built a feature-rich iOS and Android app with auth, offline mode, push notifications, and REST API data syncing.",
+        "role": "Mobile App Developer",
+        "complexity": "8/10",
+        "technologies": "React Native or Flutter, Firebase, SQLite, REST APIs"
+      },
+      {
+        "title": "App Store Release & CI/CD Pipeline",
+        "description": "Automated build, test, and distribution pipeline for iOS and Android using Fastlane and GitHub Actions.",
+        "role": "Mobile App Developer",
+        "complexity": "6/10",
+        "technologies": "Fastlane, GitHub Actions, Xcode, Android Studio"
+      }
+    ],
+    "technical_interests": "Cross-Platform Mobile, Push Notifications, Offline-First Architecture, App Performance, Mobile CI/CD",
+    "technical_summary": "Mobile developer with 2 years of experience building cross-platform iOS and Android applications. Strongest expertise in React Native or Flutter. Built projects involving REST API integration, Firebase, local storage, offline mode, and app store deployments. Experienced with Fastlane, Firebase Crashlytics, and mobile CI/CD pipelines."
+  },
+  "android_developer": {
+    "primary_domain": "Native Android Development",
+    "strongest_skill": "Kotlin",
+    "years_of_experience": 2,
+    "programming_languages": "Kotlin (expert, 2 years, 5 projects), Java (intermediate, 1 year, 2 projects)",
+    "frameworks": "Jetpack Compose (advanced, 2 years), Retrofit (expert, 2 years), Hilt (advanced, 2 years), Coroutines & Flow (expert, 2 years)",
+    "databases": "Room (SQLite), Firebase Firestore",
+    "tools": "Android Studio, Gradle, Git, Firebase, Fastlane, Espresso",
+    "projects": [
+      {
+        "title": "Native Android Application with Jetpack Compose",
+        "description": "Built a full-featured Android app using Jetpack Compose UI, MVVM architecture, Coroutines, and Room database.",
+        "role": "Android Developer",
+        "complexity": "8/10",
+        "technologies": "Kotlin, Jetpack Compose, Room, Hilt, Coroutines, Retrofit"
+      },
+      {
+        "title": "Android CI/CD & Play Store Deployment",
+        "description": "Set up automated build, signing, and deployment pipeline for Google Play Store with Fastlane.",
+        "role": "Android Developer",
+        "complexity": "6/10",
+        "technologies": "Kotlin, Gradle, Fastlane, GitHub Actions, Firebase"
+      }
+    ],
+    "technical_interests": "Android Architecture, Jetpack Libraries, Kotlin Coroutines, Material Design, App Performance, Android NDK",
+    "technical_summary": "Android developer with 2 years of experience building native Android applications with modern Jetpack libraries. Strongest expertise in Kotlin and Jetpack Compose. Built projects using MVVM architecture, Coroutines, Room, and Retrofit. Experienced with Hilt dependency injection, Firebase, Gradle, and Google Play Store deployment."
+  },
+  "ios_developer": {
+    "primary_domain": "Native iOS Development",
+    "strongest_skill": "Swift",
+    "years_of_experience": 2,
+    "programming_languages": "Swift (expert, 2 years, 5 projects), Objective-C (basic, 1 year, 1 project)",
+    "frameworks": "SwiftUI (advanced, 2 years), UIKit (advanced, 2 years), Combine (intermediate, 1 year), URLSession (expert, 2 years)",
+    "databases": "Core Data, Firebase Firestore",
+    "tools": "Xcode, Git, CocoaPods, SPM, Instruments, Fastlane, TestFlight",
+    "projects": [
+      {
+        "title": "SwiftUI iOS Application",
+        "description": "Built a production iOS app with SwiftUI, MVVM, Core Data persistence, async/await networking, and TestFlight distribution.",
+        "role": "iOS Developer",
+        "complexity": "8/10",
+        "technologies": "Swift, SwiftUI, Core Data, URLSession, Combine"
+      },
+      {
+        "title": "iOS App Store Deployment Pipeline",
+        "description": "Automated code signing, testing, and App Store submission with Fastlane and XCTest integration.",
+        "role": "iOS Developer",
+        "complexity": "6/10",
+        "technologies": "Swift, Xcode, Fastlane, XCTest, GitHub Actions"
+      }
+    ],
+    "technical_interests": "SwiftUI, iOS Architecture, Combine/Async-Await, Core Data, ARKit, App Store Optimization",
+    "technical_summary": "iOS developer with 2 years of experience building native iOS apps using Swift and SwiftUI. Strongest expertise in Swift and SwiftUI. Built projects involving MVVM architecture, Core Data persistence, async networking, and App Store delivery. Experienced with UIKit, Combine, CocoaPods, Instruments for profiling, and Fastlane CI/CD."
+  },
+  "flutter_developer": {
+    "primary_domain": "Flutter Cross-Platform Development",
+    "strongest_skill": "Flutter",
+    "years_of_experience": 2,
+    "programming_languages": "Dart (expert, 2 years, 5 projects)",
+    "frameworks": "Flutter SDK (expert, 2 years), Bloc/Riverpod (advanced, 2 years), Dio (advanced, 2 years), GoRouter (intermediate, 1 year)",
+    "databases": "Hive, Firebase Firestore, SQLite",
+    "tools": "Android Studio, Xcode, Git, Firebase, Fastlane, Flutter DevTools",
+    "projects": [
+      {
+        "title": "Flutter Cross-Platform App",
+        "description": "Built a production Flutter app for iOS and Android with Bloc state management, REST API integration, local storage, and custom animations.",
+        "role": "Flutter Developer",
+        "complexity": "8/10",
+        "technologies": "Flutter, Dart, Bloc, Dio, Hive, Firebase"
+      },
+      {
+        "title": "Flutter App with Platform Channels",
+        "description": "Integrated native iOS and Android SDKs via Flutter platform channels for camera and biometric functionality.",
+        "role": "Flutter Developer",
+        "complexity": "8/10",
+        "technologies": "Flutter, Dart, Platform Channels, Android SDK, iOS SDK"
+      }
+    ],
+    "technical_interests": "Flutter Architecture, Dart Internals, Cross-Platform UI, State Management, Custom Widgets, Flutter Web",
+    "technical_summary": "Flutter developer with 2 years of experience building cross-platform mobile apps from a single Dart codebase. Strongest expertise in Flutter and Dart. Built projects involving Bloc/Riverpod state management, REST API integration, native platform channels, and Firebase. Experienced with GoRouter, Hive, Fastlane, and Flutter DevTools profiling."
+  },
+  "devops_engineer": {
+    "primary_domain": "DevOps Engineering",
+    "strongest_skill": "CI/CD Pipeline Design",
+    "years_of_experience": 2,
+    "programming_languages": "Bash (expert, 2 years, 5 projects), Python (advanced, 2 years, 3 projects), YAML (expert, 2 years, 5 projects)",
+    "frameworks": "GitHub Actions or GitLab CI or Jenkins (expert, 2 years), Ansible (advanced, 2 years), Terraform (advanced, 2 years)",
+    "databases": "None required at core level",
+    "tools": "Docker, Kubernetes, Helm, Prometheus, Grafana, ELK Stack, Vault, Linux",
+    "projects": [
+      {
+        "title": "End-to-End CI/CD Pipeline",
+        "description": "Designed and implemented a full CI/CD pipeline with automated build, test, security scan, containerization, and Kubernetes deployment stages.",
+        "role": "DevOps Engineer",
+        "complexity": "8/10",
+        "technologies": "GitHub Actions, Docker, Kubernetes, Helm, Terraform, Vault"
+      },
+      {
+        "title": "Infrastructure Automation with Ansible & Terraform",
+        "description": "Automated server provisioning, configuration management, and secrets rotation across multiple environments using IaC tools.",
+        "role": "DevOps Engineer",
+        "complexity": "8/10",
+        "technologies": "Terraform, Ansible, Bash, Linux, Vault, Git"
+      }
+    ],
+    "technical_interests": "CI/CD Automation, Container Orchestration, Infrastructure as Code, GitOps, Monitoring & Alerting, Build Optimization",
+    "technical_summary": "DevOps engineer with 2 years of experience automating software delivery pipelines and managing containerized infrastructure. Strongest expertise in CI/CD pipeline design. Built projects involving GitHub Actions, Docker, Kubernetes, Terraform, and Ansible. Experienced with Helm, Prometheus, Grafana, ELK Stack, and Vault for secrets management."
+  },
+  "cloud_engineer": {
+    "primary_domain": "Cloud Infrastructure Engineering",
+    "strongest_skill": "AWS / GCP / Azure",
+    "years_of_experience": 2,
+    "programming_languages": "Python (advanced, 2 years, 3 projects), Bash (advanced, 2 years, 3 projects), HCL/Terraform (expert, 2 years, 4 projects)",
+    "frameworks": "Terraform (expert, 2 years), Pulumi (intermediate, 1 year), AWS CDK (intermediate, 1 year)",
+    "databases": "RDS (PostgreSQL/MySQL), DynamoDB, Cloud SQL",
+    "tools": "AWS or GCP or Azure CLI, Docker, Kubernetes, IAM, CloudWatch/Stackdriver, S3/GCS",
+    "projects": [
+      {
+        "title": "Cloud Infrastructure Provisioning",
+        "description": "Designed and provisioned a multi-tier cloud architecture with VPC, IAM policies, managed databases, auto-scaling groups, and CDN using Terraform.",
+        "role": "Cloud Engineer",
+        "complexity": "9/10",
+        "technologies": "AWS, Terraform, VPC, RDS, S3, IAM, CloudWatch"
+      },
+      {
+        "title": "Serverless Application Architecture",
+        "description": "Built and deployed a serverless event-driven application using Lambda, API Gateway, SQS, and DynamoDB with IaC.",
+        "role": "Cloud Engineer",
+        "complexity": "8/10",
+        "technologies": "AWS Lambda, API Gateway, SQS, DynamoDB, Terraform"
+      }
+    ],
+    "technical_interests": "Cloud Architecture, Serverless, Multi-region Deployment, Cloud Cost Optimization, IAM & Security, Cloud Networking",
+    "technical_summary": "Cloud engineer with 2 years of experience designing and provisioning cloud infrastructure on AWS, GCP, or Azure. Strongest expertise in cloud-native services and Terraform. Built projects involving VPC networking, IAM, managed databases, serverless architecture, and multi-environment provisioning. Experienced with auto-scaling, CDN, monitoring, and cloud cost management."
+  },
+  "site_reliability_engineer": {
+    "primary_domain": "Site Reliability Engineering",
+    "strongest_skill": "Observability & Reliability Engineering",
+    "years_of_experience": 3,
+    "programming_languages": "Python (advanced, 3 years, 4 projects), Go (intermediate, 2 years, 3 projects), Bash (advanced, 3 years, 4 projects)",
+    "frameworks": "Prometheus (expert, 3 years), Grafana (expert, 3 years), OpenTelemetry (advanced, 2 years), PagerDuty (advanced, 2 years)",
+    "databases": "PostgreSQL, InfluxDB, Thanos",
+    "tools": "Kubernetes, Terraform, Linux, k6/Locust, Jaeger, ELK Stack, Gremlin",
+    "projects": [
+      {
+        "title": "Observability Platform Build-out",
+        "description": "Designed a full observability stack with Prometheus metrics, Grafana dashboards, distributed tracing, and alert runbooks mapped to SLO breaches.",
+        "role": "SRE",
+        "complexity": "9/10",
+        "technologies": "Prometheus, Grafana, Jaeger, OpenTelemetry, PagerDuty, Kubernetes"
+      },
+      {
+        "title": "Chaos Engineering & Reliability Testing",
+        "description": "Ran structured chaos experiments to identify single points of failure, documented postmortems, and automated corrective toil.",
+        "role": "SRE",
+        "complexity": "9/10",
+        "technologies": "Gremlin, k6, Python, Linux, Kubernetes, Runbooks"
+      }
+    ],
+    "technical_interests": "SLI/SLO Design, Incident Management, Distributed Systems Reliability, Chaos Engineering, Capacity Planning, Toil Automation",
+    "technical_summary": "Site reliability engineer with 3 years of experience maintaining production system reliability and observability. Strongest expertise in observability tooling and SLO-driven reliability engineering. Built projects involving Prometheus/Grafana stacks, distributed tracing, chaos experiments, and automated incident response. Experienced with Kubernetes, OpenTelemetry, load testing, and error budget management."
+  },
+  "platform_engineer": {
+    "primary_domain": "Platform Engineering / Internal Developer Platforms",
+    "strongest_skill": "Internal Developer Platform Design",
+    "years_of_experience": 3,
+    "programming_languages": "Python (advanced, 3 years, 4 projects), Go (advanced, 2 years, 3 projects), HCL/Terraform (expert, 3 years, 5 projects), YAML (expert, 3 years, 5 projects)",
+    "frameworks": "Backstage (advanced, 2 years), ArgoCD (expert, 3 years), Helm (expert, 3 years), Crossplane (intermediate, 1 year)",
+    "databases": "None required at core level",
+    "tools": "Kubernetes, Terraform, Vault, OPA/Gatekeeper, Git, Docker, Prometheus",
+    "projects": [
+      {
+        "title": "Internal Developer Portal",
+        "description": "Built a Backstage-based internal developer portal with service catalog, golden path templates, and self-service infrastructure provisioning.",
+        "role": "Platform Engineer",
+        "complexity": "9/10",
+        "technologies": "Backstage, Kubernetes, ArgoCD, Terraform, Vault, Helm"
+      },
+      {
+        "title": "GitOps & Policy-as-Code Framework",
+        "description": "Implemented GitOps workflows with ArgoCD and enforced cluster policies using OPA/Gatekeeper across multi-tenant namespaces.",
+        "role": "Platform Engineer",
+        "complexity": "9/10",
+        "technologies": "ArgoCD, Kubernetes, OPA, Helm, Terraform, Prometheus"
+      }
+    ],
+    "technical_interests": "Developer Experience, Golden Path Templates, GitOps, Kubernetes Operators, Policy as Code, Platform Observability",
+    "technical_summary": "Platform engineer with 3 years of experience building internal developer platforms and self-service infrastructure tooling. Strongest expertise in IDP design and GitOps. Built projects involving Backstage developer portals, ArgoCD GitOps pipelines, Terraform module libraries, and Kubernetes RBAC with OPA policies. Experienced with Crossplane, Vault, Helm, and developer experience metrics."
+  },
+  "machine_learning_engineer": {
+    "primary_domain": "Machine Learning Engineering",
+    "strongest_skill": "Python",
+    "years_of_experience": 3,
+    "programming_languages": "Python (expert, 3 years, 5 projects), C++ (advanced, 2 years, 3 projects), SQL (intermediate, 2 years, 3 projects)",
+    "frameworks": "PyTorch (advanced, 2 years), TensorFlow (advanced, 2 years), Scikit-learn (expert, 3 years), FastAPI (intermediate, 1 year)",
+    "databases": "PostgreSQL, MongoDB",
+    "tools": "Linux, Git, Docker, AWS, Kubernetes, MLflow, Kubeflow",
+    "projects": [
+      {
+        "title": "End-to-End ML Pipeline & Model Deployment",
+        "description": "Built automated feature engineering, model training, and deployment pipelines for deep learning models.",
+        "role": "Machine Learning Engineer",
+        "complexity": "9/10",
+        "technologies": "Python, PyTorch, Docker, AWS, PostgreSQL"
+      },
+      {
+        "title": "Computer Vision / NLP Inference Engine",
+        "description": "Developed high-throughput framework for real-time model evaluation and optimization.",
+        "role": "Core ML Developer",
+        "complexity": "8/10",
+        "technologies": "Python, C++, Linux"
+      }
+    ],
+    "technical_interests": "Machine Learning, Deep Learning, MLOps, Cloud Architecture, Computer Vision, NLP",
+    "technical_summary": "Experienced Machine Learning professional with 3 years of experience. Strongest expertise in Python and deep learning frameworks. Worked extensively with Python, C++, PyTorch, and cloud deployment tools. Built projects involving data pipelines, model training, feature engineering, and containerized deployment."
+  },
+  "ai_engineer": {
+    "primary_domain": "AI Engineering / LLM Applications",
+    "strongest_skill": "LLM Integration & Prompt Engineering",
+    "years_of_experience": 2,
+    "programming_languages": "Python (expert, 2 years, 5 projects), TypeScript (intermediate, 1 year, 2 projects)",
+    "frameworks": "LangChain or LlamaIndex (expert, 2 years), FastAPI (advanced, 2 years), OpenAI/Anthropic SDK (expert, 2 years), Pydantic (advanced, 2 years)",
+    "databases": "PostgreSQL with pgvector, Pinecone or Weaviate (vector DB)",
+    "tools": "Docker, Git, LangSmith, AWS Bedrock or Vertex AI, Jupyter",
+    "projects": [
+      {
+        "title": "RAG-Based Question Answering System",
+        "description": "Built a retrieval-augmented generation pipeline with document chunking, embedding indexing, semantic search, and LLM response synthesis.",
+        "role": "AI Engineer",
+        "complexity": "8/10",
+        "technologies": "Python, LangChain, OpenAI Embeddings, Pinecone, FastAPI, Docker"
+      },
+      {
+        "title": "LLM-Powered Agent with Tool Use",
+        "description": "Developed an autonomous agent capable of function calling, memory management, and multi-step reasoning over external APIs.",
+        "role": "AI Engineer",
+        "complexity": "9/10",
+        "technologies": "Python, LangChain Agents, OpenAI Function Calling, PostgreSQL, LangSmith"
+      }
+    ],
+    "technical_interests": "LLM Applications, RAG Systems, Prompt Engineering, Vector Search, AI Agents, LLM Fine-tuning, Multimodal AI",
+    "technical_summary": "AI engineer with 2 years of experience building production LLM-powered applications. Strongest expertise in LLM integration, RAG, and prompt engineering. Built projects involving vector search pipelines, autonomous agents with tool use, and LLM evaluation frameworks. Experienced with LangChain, OpenAI/Anthropic APIs, pgvector, Pinecone, FastAPI, and LangSmith observability."
+  },
+  "data_scientist": {
+    "primary_domain": "Data Science",
+    "strongest_skill": "Statistical Analysis & Machine Learning",
+    "years_of_experience": 2,
+    "programming_languages": "Python (expert, 2 years, 5 projects), R (intermediate, 1 year, 2 projects), SQL (advanced, 2 years, 4 projects)",
+    "frameworks": "Scikit-learn (expert, 2 years), Pandas (expert, 2 years), NumPy (expert, 2 years), Matplotlib/Seaborn (advanced, 2 years)",
+    "databases": "PostgreSQL, BigQuery",
+    "tools": "Jupyter Notebooks, Git, MLflow, Tableau or Looker, XGBoost/LightGBM",
+    "projects": [
+      {
+        "title": "Predictive Modeling & A/B Testing Analysis",
+        "description": "Built classification and regression models with feature selection, cross-validation, hypothesis testing, and statistical reporting for a business decision problem.",
+        "role": "Data Scientist",
+        "complexity": "8/10",
+        "technologies": "Python, Scikit-learn, Pandas, SQL, Jupyter, Matplotlib"
+      },
+      {
+        "title": "Exploratory Data Analysis & Business Insights",
+        "description": "Conducted deep EDA on large datasets, identified statistical patterns, and built interactive dashboards to communicate findings to stakeholders.",
+        "role": "Data Scientist",
+        "complexity": "7/10",
+        "technologies": "Python, Pandas, Seaborn, SQL, Tableau, Jupyter"
+      }
+    ],
+    "technical_interests": "Statistical Modeling, A/B Testing, Predictive Analytics, NLP, Feature Engineering, Experimental Design",
+    "technical_summary": "Data scientist with 2 years of experience applying statistical analysis and machine learning to business problems. Strongest expertise in Python and statistical modeling. Built projects involving regression/classification models, A/B test analysis, EDA, and data visualization. Experienced with Scikit-learn, Pandas, NumPy, XGBoost, SQL, and BI tools like Tableau."
+  },
+  "data_engineer": {
+    "primary_domain": "Data Engineering",
+    "strongest_skill": "Data Pipeline Design (ETL/ELT)",
+    "years_of_experience": 2,
+    "programming_languages": "Python (expert, 2 years, 5 projects), SQL (expert, 2 years, 5 projects)",
+    "frameworks": "Apache Spark (advanced, 2 years), dbt (advanced, 2 years), Airflow or Prefect (advanced, 2 years), Kafka (intermediate, 1 year)",
+    "databases": "Snowflake or BigQuery or Redshift, PostgreSQL",
+    "tools": "Docker, Git, Terraform, Great Expectations, Parquet/Avro, AWS S3 or GCS",
+    "projects": [
+      {
+        "title": "Batch ETL Data Pipeline",
+        "description": "Built an Airflow-orchestrated ELT pipeline ingesting raw data into a Snowflake warehouse with dbt transformations, data quality tests, and alerting.",
+        "role": "Data Engineer",
+        "complexity": "8/10",
+        "technologies": "Python, Airflow, dbt, Snowflake, SQL, S3, Great Expectations"
+      },
+      {
+        "title": "Real-Time Streaming Pipeline",
+        "description": "Developed a Kafka-based streaming ingestion pipeline with PySpark processing, Delta Lake storage, and downstream BI layer.",
+        "role": "Data Engineer",
+        "complexity": "9/10",
+        "technologies": "Kafka, PySpark, Delta Lake, Airflow, Python, SQL"
+      }
+    ],
+    "technical_interests": "Data Pipeline Architecture, Streaming vs Batch, Data Warehousing, dbt, Data Quality, Data Governance",
+    "technical_summary": "Data engineer with 2 years of experience building data pipelines, warehouses, and streaming infrastructure. Strongest expertise in ETL/ELT pipeline design. Built projects involving Airflow-orchestrated batch pipelines, dbt transformations, Kafka streaming, and cloud data warehouses. Experienced with Snowflake, BigQuery, Spark, dbt, Great Expectations, and Parquet."
+  },
+  "business_intelligence_engineer": {
+    "primary_domain": "Business Intelligence Engineering",
+    "strongest_skill": "SQL & Data Modeling",
+    "years_of_experience": 2,
+    "programming_languages": "SQL (expert, 2 years, 5 projects), Python (intermediate, 1 year, 2 projects)",
+    "frameworks": "dbt (advanced, 2 years), LookML or DAX (advanced, 2 years), Tableau or Power BI or Looker (expert, 2 years)",
+    "databases": "Snowflake, BigQuery, Redshift",
+    "tools": "Git, Airflow (basic), Excel/Google Sheets (advanced), Jira, Confluence",
+    "projects": [
+      {
+        "title": "Executive Metrics Dashboard",
+        "description": "Built a suite of Looker or Tableau dashboards with dimensional data models, KPI definitions, and scheduled reports for business stakeholders.",
+        "role": "BI Engineer",
+        "complexity": "7/10",
+        "technologies": "Looker, LookML, SQL, BigQuery, dbt"
+      },
+      {
+        "title": "Self-Service Analytics Platform",
+        "description": "Designed star-schema data models and BI layer enabling non-technical users to explore data and build their own reports.",
+        "role": "BI Engineer",
+        "complexity": "7/10",
+        "technologies": "dbt, Snowflake, SQL, Tableau, Git"
+      }
+    ],
+    "technical_interests": "Dimensional Modeling, KPI Design, Data Visualization, Self-Service Analytics, BI Tool Architecture, Data Governance",
+    "technical_summary": "Business intelligence engineer with 2 years of experience building analytics infrastructure and data visualization solutions. Strongest expertise in SQL and dimensional data modeling. Built projects involving Looker/Tableau dashboards, LookML definitions, dbt transformations, and self-service BI platforms. Experienced with Snowflake, BigQuery, star-schema design, and stakeholder KPI reporting."
+  },
+  "cybersecurity_engineer": {
+    "primary_domain": "Cybersecurity Engineering",
+    "strongest_skill": "Security Architecture & Hardening",
+    "years_of_experience": 3,
+    "programming_languages": "Python (advanced, 3 years, 4 projects), Bash (advanced, 3 years, 4 projects)",
+    "frameworks": "Splunk or Microsoft Sentinel (expert, 3 years), Terraform (intermediate, 2 years), CIS Benchmarks (expert, 3 years), OWASP (advanced, 3 years)",
+    "databases": "None required at core level",
+    "tools": "AWS GuardDuty, CrowdStrike, Vault, Nessus/Qualys, Wireshark, IAM tooling, Git",
+    "projects": [
+      {
+        "title": "Cloud Security Hardening & Compliance",
+        "description": "Implemented CIS benchmark controls across a multi-account AWS environment including IAM policies, GuardDuty alerting, and SOC2 evidence collection.",
+        "role": "Cybersecurity Engineer",
+        "complexity": "9/10",
+        "technologies": "AWS GuardDuty, IAM, Terraform, Splunk, Python, CIS Benchmarks"
+      },
+      {
+        "title": "SIEM Deployment & Threat Detection",
+        "description": "Deployed and tuned a SIEM platform with custom correlation rules, automated playbooks, and incident response runbooks.",
+        "role": "Cybersecurity Engineer",
+        "complexity": "8/10",
+        "technologies": "Splunk, Python, Bash, SOAR, MITRE ATT&CK, Linux"
+      }
+    ],
+    "technical_interests": "Zero Trust Architecture, Cloud Security, SIEM/SOAR, Threat Modeling, Compliance Automation, Container Security",
+    "technical_summary": "Cybersecurity engineer with 3 years of experience designing and maintaining security controls across cloud, infrastructure, and application layers. Strongest expertise in security architecture and hardening. Built projects involving SIEM deployment, CIS-hardened cloud environments, and compliance automation. Experienced with AWS security services, Vault, CrowdStrike EDR, OWASP, MITRE ATT&CK, and SOC2/ISO 27001 compliance."
+  },
+  "penetration_tester": {
+    "primary_domain": "Penetration Testing / Offensive Security",
+    "strongest_skill": "Web Application & Network Penetration Testing",
+    "years_of_experience": 2,
+    "programming_languages": "Python (advanced, 2 years, 4 projects), Bash (advanced, 2 years, 4 projects)",
+    "frameworks": "Metasploit (expert, 2 years), Burp Suite (expert, 2 years), Nmap (expert, 2 years), BloodHound (advanced, 2 years)",
+    "databases": "None required at core level",
+    "tools": "Kali Linux, Burp Suite, Metasploit, Nmap, BloodHound, Rubeus, Wireshark, Gobuster",
+    "projects": [
+      {
+        "title": "Web Application Penetration Test",
+        "description": "Conducted a full OWASP-based web app pentest including authentication bypass, injection attacks, IDOR, and SSRF exploitation, with a professional report.",
+        "role": "Penetration Tester",
+        "complexity": "8/10",
+        "technologies": "Burp Suite, Python, Nmap, Kali Linux, OWASP methodology"
+      },
+      {
+        "title": "Active Directory Red Team Exercise",
+        "description": "Simulated an internal adversary compromising AD via Kerberoasting, Pass-the-Hash, and lateral movement to achieve domain admin.",
+        "role": "Penetration Tester",
+        "complexity": "9/10",
+        "technologies": "BloodHound, Rubeus, Metasploit, Python, Kali Linux, MITRE ATT&CK"
+      }
+    ],
+    "technical_interests": "Web App Pentesting, Active Directory Attacks, Red Teaming, Exploit Development, API Security Testing, Cloud Penetration Testing",
+    "technical_summary": "Penetration tester with 2 years of experience conducting authorized offensive security assessments. Strongest expertise in web application and network penetration testing. Performed projects involving OWASP web app testing, Active Directory red team exercises, and CVE exploitation chains. Experienced with Burp Suite, Metasploit, BloodHound, Kali Linux, Python exploit scripting, and professional pentest reporting."
+  },
+  "security_analyst": {
+    "primary_domain": "Security Operations / SOC Analysis",
+    "strongest_skill": "SIEM Monitoring & Incident Response",
+    "years_of_experience": 2,
+    "programming_languages": "Python (intermediate, 2 years, 3 projects), Bash (intermediate, 2 years, 2 projects)",
+    "frameworks": "Splunk or Microsoft Sentinel (expert, 2 years), MITRE ATT&CK (expert, 2 years), Nessus or Qualys (advanced, 2 years)",
+    "databases": "None required at core level",
+    "tools": "Wireshark, CrowdStrike EDR, SOAR Platform, Jira/ServiceNow, Autopsy",
+    "projects": [
+      {
+        "title": "SOC Alert Triage & Incident Response",
+        "description": "Triaged and investigated 50+ SIEM alerts per week, correlated IOCs, escalated true positives, and authored incident reports with containment actions.",
+        "role": "Security Analyst",
+        "complexity": "7/10",
+        "technologies": "Splunk, MITRE ATT&CK, CrowdStrike, Wireshark, Python"
+      },
+      {
+        "title": "Threat Hunting Campaign",
+        "description": "Conducted proactive threat hunt across endpoint logs to detect lateral movement and persistence techniques based on ATT&CK hypotheses.",
+        "role": "Security Analyst",
+        "complexity": "8/10",
+        "technologies": "Splunk, MITRE ATT&CK, Python, EDR logs, Wireshark"
+      }
+    ],
+    "technical_interests": "SOC Operations, Threat Hunting, Malware Analysis, SIEM Tuning, SOAR Automation, Phishing Response",
+    "technical_summary": "Security analyst with 2 years of experience in security operations and incident response. Strongest expertise in SIEM monitoring and threat detection. Built skills in alert triage, IOC correlation, threat hunting, and incident documentation. Experienced with Splunk, MITRE ATT&CK, CrowdStrike EDR, Wireshark, vulnerability scanning, and SOAR playbook execution."
+  },
+  "network_engineer": {
+    "primary_domain": "Network Engineering",
+    "strongest_skill": "Routing & Switching",
+    "years_of_experience": 2,
+    "programming_languages": "Python (intermediate, 2 years, 3 projects), Bash (intermediate, 2 years, 2 projects)",
+    "frameworks": "Cisco IOS (expert, 2 years), Junos (intermediate, 1 year), Netmiko/NAPALM (intermediate, 1 year), Ansible for Network (intermediate, 1 year)",
+    "databases": "None required at core level",
+    "tools": "Wireshark, PRTG or SolarWinds, Cisco Packet Tracer, GNS3, Git",
+    "projects": [
+      {
+        "title": "Enterprise Network Design & Implementation",
+        "description": "Designed and deployed a multi-site enterprise network with BGP/OSPF routing, VLANs, VPN tunnels, and redundant links.",
+        "role": "Network Engineer",
+        "complexity": "8/10",
+        "technologies": "Cisco IOS, BGP, OSPF, VPN, Wireshark"
+      },
+      {
+        "title": "Network Automation Pipeline",
+        "description": "Automated the deployment of VLAN changes and firmware updates across 50+ switches using Python and Ansible.",
+        "role": "Network Engineer",
+        "complexity": "7/10",
+        "technologies": "Python, Netmiko, Ansible, Git, Bash"
+      }
+    ],
+    "technical_interests": "Network Architecture, BGP Routing, Network Automation, SD-WAN, Firewall Configuration, Packet Analysis",
+    "technical_summary": "Network engineer with 2 years of experience designing and managing enterprise networks. Strongest expertise in routing and switching protocols. Built projects involving BGP/OSPF topologies, VPN setups, and Python-based network automation. Experienced with Cisco IOS, Wireshark, Netmiko, and Ansible."
+  }
+}

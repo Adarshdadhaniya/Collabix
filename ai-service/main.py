@@ -5,6 +5,9 @@ import pdfplumber
 import requests
 import json
 import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 app = FastAPI()
 
@@ -84,6 +87,59 @@ async def parse_resume(file: UploadFile = File(...)):
     except Exception as e:
         # Fallback if Ollama fails or is not running
         raise HTTPException(status_code=500, detail=f"Error calling Ollama: {str(e)}")
+
+class SearchRequest(BaseModel):
+    role: str
+    students: list[dict]
+
+@app.post("/search")
+def ai_search(request: SearchRequest):
+    try:
+        from backend.search_service import search_group_members
+        results = search_group_members(request.role, request.students)
+        return {"results": results}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+class EvaluateRequest(BaseModel):
+    project_data: dict
+    members: list[dict]
+
+@app.post("/evaluate-team")
+def evaluate_team(request: EvaluateRequest):
+    try:
+        import ollama
+        import re
+        from backend.llm_config import OLLAMA_CONFIG
+        from backend.prompts import get_group_evaluation_prompt, format_member_for_evaluation
+        
+        member_details = "\n---\n".join([format_member_for_evaluation(m) for m in request.members])
+        prompt = get_group_evaluation_prompt(request.project_data, member_details)
+        
+        response = ollama.generate(
+            model=OLLAMA_CONFIG["model"],
+            prompt=prompt,
+            stream=False,
+            options={
+                "temperature": 0.2,
+                "num_predict": 4096,
+                "top_p": 0.85
+            }
+        )
+        
+        results_text = response['response'].strip()
+        
+        # Extract JSON using regex
+        json_match = re.search(r'\{.*\}', results_text, re.DOTALL)
+        if json_match:
+            results_text = json_match.group(0)
+            
+        evaluation = json.loads(results_text)
+        return {"evaluation": evaluation}
+    except json.JSONDecodeError as e:
+        raise HTTPException(status_code=500, detail=f"Failed to parse LLM JSON: {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

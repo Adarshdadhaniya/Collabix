@@ -222,37 +222,56 @@ exports.searchTeammates = async (req, res) => {
             })));
         }
 
-        // 2. Semantic Search
-        // Get embedding for the search query
-        const embedResponse = await axios.post(`${AI_SERVICE_URL}/embed`, {
-            texts: [query]
-        });
-        const queryVector = embedResponse.data.embeddings[0];
+        // 2. Semantic Search (LLM based)
+        // Extract eligible students into a plain JSON array
+        const eligibleStudents = profiles.map(p => ({
+            _id: p._id.toString(),
+            user: {
+                name: p.user ? p.user.name : 'Unknown'
+            },
+            skills: p.skills || {},
+            projects: p.projects || [],
+            experience_summary: p.experience_summary || {},
+            skillEmbedding: p.skillEmbedding || []
+        }));
 
-        // Calculate similarity for each profile
-        let scoredProfiles = profiles.map(p => {
-            let score = 0;
-            if (p.skillEmbedding && p.skillEmbedding.length > 0) {
-                score = cosineSimilarity(queryVector, p.skillEmbedding);
-            }
-            return {
-                id: p.user._id,
-                name: p.user.name,
-                department: p.department,
-                year: p.year,
-                cgpa: p.cgpa,
-                skills: p.skills,
-                matchScore: Math.round(score * 100) // Convert to percentage
-            };
-        });
+        try {
+            console.log(`[POST /search] Sending ${eligibleStudents.length} eligible students to AI service`);
+            const aiResponse = await axios.post(`${AI_SERVICE_URL}/search`, {
+                role: query,
+                students: eligibleStudents
+            });
+            
+            // The AI service returns Top 5% matching students with detailed reasoning
+            const aiResults = aiResponse.data.results || [];
+            
+            // Map AI results back to our profiles to include cgpa, department, year, etc.
+            const profileMap = {};
+            profiles.forEach(p => { profileMap[p._id.toString()] = p; });
+            
+            const enrichedResults = aiResults.map(aiRes => {
+                const p = profileMap[aiRes.id];
+                return {
+                    id: p.user._id, // This is the User ID needed for invitations
+                    name: p.user.name,
+                    department: p.department,
+                    year: p.year,
+                    cgpa: p.cgpa,
+                    skills: p.skills,
+                    matchScore: Math.round((aiRes.match_score || 0) * 10), // Convert 9.5 to 95%
+                    score_breakdown: aiRes.score_breakdown,
+                    reason: aiRes.reason,
+                    strengths: aiRes.strengths,
+                    gaps: aiRes.gaps
+                };
+            });
 
-        // Sort by highest match score
-        scoredProfiles.sort((a, b) => b.matchScore - a.matchScore);
-
-        // Filter out very low matches (optional threshold, e.g., > 10%)
-        scoredProfiles = scoredProfiles.filter(p => p.matchScore > 10);
-
-        res.json(scoredProfiles);
+            res.json(enrichedResults);
+            
+        } catch (err) {
+            console.error("AI Search Service error:", err.response?.data || err.message);
+            return res.status(500).json({ message: "Failed to perform AI semantic search" });
+        }
 
     } catch (err) {
         console.error("Search error:", err.message);

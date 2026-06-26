@@ -4,10 +4,14 @@ const {
     createGroup, requestJoin, inviteStudent, acceptJoinRequest, 
     getMyGroups, getProjectGroups, getGroupById, 
     getJoinRequestsForGroup, rejectJoinRequest,
-    getSentRequests, getReceivedInvitations, acceptInvitation, rejectInvitation
+    getSentRequests, getReceivedInvitations, acceptInvitation, rejectInvitation,
+    updateProposal, evaluateTeam
 } = require('../controllers/groupController');
 const { validateTeamRules } = require('../middleware/teamValidation');
 const passport = require('passport');
+
+router.put('/:groupId/proposal', passport.authenticate('jwt', { session: false }), updateProposal);
+router.post('/:groupId/evaluate', passport.authenticate('jwt', { session: false }), evaluateTeam);
 
 router.get('/my-groups', passport.authenticate('jwt', { session: false }), getMyGroups);
 router.get('/sent-requests', passport.authenticate('jwt', { session: false }), getSentRequests);

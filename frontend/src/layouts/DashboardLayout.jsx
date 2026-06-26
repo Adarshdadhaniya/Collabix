@@ -26,9 +26,14 @@ export default function DashboardLayout() {
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Menu</p>
             
             {isAdminOrTeacher ? (
-              <Link to="/admin/dashboard" className={navLinkClass('/admin/dashboard')}>
-                Admin Dashboard
-              </Link>
+              <>
+                <Link to="/admin/dashboard" className={navLinkClass('/admin/dashboard')}>
+                  Admin Dashboard
+                </Link>
+                <Link to="/admin/room-booking" className={navLinkClass('/admin/room-booking')}>
+                  Room Booking
+                </Link>
+              </>
             ) : (
               <>
                 <Link to="/student/dashboard" className={navLinkClass('/student/dashboard')}>

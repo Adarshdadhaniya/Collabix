@@ -1,116 +1,147 @@
 # backend/search_service.py
 
+import re
 import json
 import ollama
-from database import Student
-from llm_config import OLLAMA_CONFIG, get_search_prompt
+import math
+import requests
+import os
+from backend.llm_config import OLLAMA_CONFIG
+from backend.prompts import get_role_selection_prompt
 
-def search_group_members(role, num_results=5):
-    """
-    Main search function with optimized LLM
-    """
+# AI Service URL running locally
+AI_SERVICE_URL = "http://127.0.0.1:8000"
+
+def cosine_similarity(vec1, vec2):
+    """Compute cosine similarity between two lists of floats."""
+    if not vec1 or not vec2 or len(vec1) != len(vec2):
+        return 0.0
+    
+    dot_product = sum(a * b for a, b in zip(vec1, vec2))
+    normA = math.sqrt(sum(a * a for a in vec1))
+    normB = math.sqrt(sum(b * b for b in vec2))
+    
+    if normA == 0 or normB == 0:
+        return 0.0
+    return dot_product / (normA * normB)
+
+def get_embedding(text):
+    """Call the local embed endpoint to get a vector."""
     try:
-        # Step 1: Get all students from MongoDB
-        students = list(Student.objects.all())
+        response = requests.post(f"{AI_SERVICE_URL}/embed", json={"texts": [text]})
+        response.raise_for_status()
+        return response.json().get("embeddings", [[]])[0]
+    except Exception as e:
+        print(f"Error fetching embedding: {e}")
+        return []
+
+def search_group_members(role_query, students):
+    """
+    RAG-based search function using Cosine Similarity.
+    """
+    print(f"\n{'='*50}\n🔍 AI SEMANTIC SEARCH INITIATED\n{'='*50}")
+    print(f"Role Requested: {role_query}")
+    print(f"Total Eligible Students Received: {len(students)}")
+    
+    try:
+        # 1. Load roles dictionary
+        roles_path = os.path.join(os.path.dirname(__file__), 'roles_dictionary.json')
+        with open(roles_path, 'r', encoding='utf-8') as f:
+            roles_dict = json.load(f)
+            
+        role_keys = list(roles_dict.keys())
         
-        # Step 2: Prepare enriched data for LLM
-        students_data = format_students_for_llm(students)
+        # 2. Get LLM to select Top 2 keys
+        prompt = get_role_selection_prompt(role_query, role_keys)
         
-        # Step 3: Generate optimized prompt
-        prompt = get_search_prompt(role, students_data)
-        
-        # Step 4: Call Ollama with tuned parameters
+        print("\n🤖 CALLING OLLAMA TO SELECT ROLE KEYS...")
         response = ollama.generate(
             model=OLLAMA_CONFIG["model"],
             prompt=prompt,
             stream=False,
             options={
-                "temperature": 0.15,
-                "num_predict": 1024,
-                "top_p": 0.85
+                "temperature": 0.1,
+                "num_predict": 512
             }
         )
         
-        # Step 5: Parse response
         results_text = response['response'].strip()
+        print(f"LLM Raw Output:\n{results_text}")
         
-        # Remove markdown if present
-        if "```json" in results_text:
-            results_text = results_text.split("```json")[1].split("```")[0]
+        # Parse JSON keys safely
+        json_match = re.search(r'\[.*\]', results_text, re.DOTALL)
+        if json_match:
+            results_text = json_match.group(0)
+            
+        selected_keys = json.loads(results_text)
+        print(f"✅ Selected Keys: {selected_keys}")
         
-        results = json.loads(results_text)
+        # 3. Build Role Target Text
+        combined_text_parts = []
+        for key in selected_keys:
+            if key in roles_dict:
+                r = roles_dict[key]
+                combined_text_parts.append(
+                    f"Domain: {r.get('primary_domain', '')}\n"
+                    f"Strongest Skill: {r.get('strongest_skill', '')}\n"
+                    f"Programming Languages: {r.get('programming_languages', '')}\n"
+                    f"Frameworks: {r.get('frameworks', '')}\n"
+                    f"Databases: {r.get('databases', '')}\n"
+                    f"Tools: {r.get('tools', '')}\n"
+                    f"Interests: {r.get('technical_interests', '')}\n"
+                    f"Summary: {r.get('technical_summary', '')}"
+                )
+                
+        target_role_text = "\n\n".join(combined_text_parts)
         
-        # Step 6: Verify and enrich results
-        verified_results = verify_results(results, students)
+        if not target_role_text:
+            print("⚠️ No valid keys selected or matched in dictionary. Falling back to query text.")
+            target_role_text = role_query
+            
+        # 4. Generate Target Embedding
+        print("\n🔢 Generating Role Target Embedding...")
+        target_embedding = get_embedding(target_role_text)
         
-        return verified_results[:num_results]
+        if not target_embedding:
+            print("❌ Failed to generate target embedding. Aborting.")
+            return []
+            
+        # 5. Calculate Similarity for all students
+        scored_students = []
+        for student in students:
+            student_emb = student.get('skillEmbedding', [])
+            score = cosine_similarity(target_embedding, student_emb)
+            
+            # Map back to UI format
+            # We skip 'score_breakdown' as per user request to drop detailed reasoning
+            scored_students.append({
+                "id": str(student.get('_id')),
+                "name": student.get('user', {}).get('name', 'Unknown'),
+                "match_score": float(score) * 10,  # Scale to 0-10 so UI's * 10 works (0-100%)
+                "reason": f"Matched via Semantic Search to core role skills ({', '.join(selected_keys)}).",
+                "strengths": ["Matched via embeddings"],
+                "gaps": []
+            })
+            
+        # 6. Sort and slice
+        scored_students.sort(key=lambda x: x.get('match_score', 0), reverse=True)
+        
+        print("\n🧮 TOP MATCHES:")
+        for idx, res in enumerate(scored_students[:5]):
+            print(f"{idx+1}. {res.get('name')} | Similarity: {res.get('match_score'):.2f}/10")
+            
+        total_scored = len(scored_students)
+        limit = max(3, math.ceil(total_scored * 0.05))
+        final_results = scored_students[:limit]
+        
+        print(f"\n✅ SUCCESSFUL MATCHES: Returning top {len(final_results)} students.")
+        print(f"{'='*50}\n")
+        
+        return final_results
         
     except json.JSONDecodeError as e:
-        print(f"❌ JSON Parse Error: {e}")
-        print(f"Raw response: {response['response']}")
+        print(f"❌ JSON Parse Error on Key Selection: {e}")
         return []
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"❌ Error during Search: {e}")
         return []
-
-
-def format_students_for_llm(students):
-    """
-    Format enriched student data for LLM
-    """
-    formatted = []
-    
-    for student in students:
-        formatted.append({
-            "id": str(student._id),
-            "name": student.name,
-            "skills": {
-                "languages": [
-                    f"{lang.get('name')} ({lang.get('proficiency')}, {lang.get('years_of_experience')}y)"
-                    for lang in student.skills.get('programming_languages', [])
-                ],
-                "frameworks": [
-                    f"{fw.get('name')} ({fw.get('proficiency')})"
-                    for fw in student.skills.get('frameworks', [])
-                ],
-                "databases": [
-                    db.get('name') for db in student.skills.get('databases', [])
-                ],
-                "tools": [
-                    tool.get('name') for tool in student.skills.get('tools', [])
-                ],
-                "soft_skills": [
-                    skill.get('name') for skill in student.skills.get('soft_skills', [])
-                ],
-                "domains": student.skills.get('domains', [])
-            },
-            "projects": [
-                {
-                    "title": p.get('title'),
-                    "tech": p.get('technologies'),
-                    "impact": p.get('impact')
-                }
-                for p in student.projects[:2]  # Top 2 projects
-            ],
-            "experience": {
-                "years": student.experience_summary.get('total_years'),
-                "strongest": student.experience_summary.get('strongest_skill'),
-                "domain": student.experience_summary.get('primary_domain')
-            }
-        })
-    
-    return json.dumps(formatted, indent=2)
-
-
-def verify_results(results, students):
-    """
-    Verify LLM didn't hallucinate
-    """
-    student_map = {str(s._id): s for s in students}
-    verified = []
-    
-    for result in results:
-        if result.get('id') in student_map:
-            verified.append(result)
-    
-    return verified

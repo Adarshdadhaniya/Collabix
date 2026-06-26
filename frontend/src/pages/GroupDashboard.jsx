@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Users, Shield, UserPlus, MessageSquare, ArrowLeft, Loader2, Target, CheckCircle } from 'lucide-react';
+import { Users, Shield, UserPlus, MessageSquare, ArrowLeft, Loader2, Target, CheckCircle, Save, Edit3 } from 'lucide-react';
 import api from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 
@@ -12,6 +12,17 @@ export default function GroupDashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState('');
+  
+  // Proposal Form State
+  const [isEditingProposal, setIsEditingProposal] = useState(false);
+  const [proposalData, setProposalData] = useState({
+    projectTitle: '',
+    projectDescription: '',
+    problemStatement: '',
+    techStack: '',
+    tools: ''
+  });
+
 
   const fetchGroupDetails = async () => {
     try {
@@ -23,6 +34,15 @@ export default function GroupDashboard() {
         const requestsRes = await api.get(`/groups/${groupId}/requests`);
         setRequests(requestsRes.data);
       }
+      
+      // Init Proposal State
+      setProposalData({
+        projectTitle: groupRes.data.projectTitle || '',
+        projectDescription: groupRes.data.projectDescription || '',
+        problemStatement: groupRes.data.problemStatement || '',
+        techStack: groupRes.data.techStack ? groupRes.data.techStack.join(', ') : '',
+        tools: groupRes.data.tools ? groupRes.data.tools.join(', ') : ''
+      });
     } catch (err) {
       console.error(err);
       setError('Failed to load group details');
@@ -47,6 +67,27 @@ export default function GroupDashboard() {
       setIsProcessing(false);
     }
   };
+
+  const handleProposalSubmit = async (e) => {
+    e.preventDefault();
+    setIsProcessing(true);
+    try {
+      const payload = {
+        ...proposalData,
+        techStack: proposalData.techStack.split(',').map(s => s.trim()).filter(s => s),
+        tools: proposalData.tools.split(',').map(s => s.trim()).filter(s => s)
+      };
+      await api.put(`/groups/${groupId}/proposal`, payload);
+      alert('Project Proposal Updated!');
+      setIsEditingProposal(false);
+      fetchGroupDetails();
+    } catch (err) {
+      alert(err.response?.data?.message || 'Failed to update proposal');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
 
   if (isLoading) {
     return (
@@ -181,6 +222,145 @@ export default function GroupDashboard() {
                 </div>
               </div>
             )}
+            
+            {/* Project Proposal Section */}
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden mt-8">
+              <div className="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  <Edit3 className="w-5 h-5 text-indigo-600" />
+                  Project Proposal
+                </h2>
+                {!isEditingProposal && (
+                  <button 
+                    onClick={() => setIsEditingProposal(true)}
+                    className="text-sm font-medium text-indigo-600 hover:text-indigo-700 bg-indigo-50 px-3 py-1.5 rounded-lg transition-colors"
+                  >
+                    Edit Proposal
+                  </button>
+                )}
+              </div>
+              
+              <div className="p-6">
+                {isEditingProposal ? (
+                  <form onSubmit={handleProposalSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1">Project Title</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={proposalData.projectTitle}
+                        onChange={(e) => setProposalData({...proposalData, projectTitle: e.target.value})}
+                        className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1">Problem Statement</label>
+                      <textarea 
+                        required rows="2"
+                        value={proposalData.problemStatement}
+                        onChange={(e) => setProposalData({...proposalData, problemStatement: e.target.value})}
+                        className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                      ></textarea>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1">Description</label>
+                      <textarea 
+                        required rows="3"
+                        value={proposalData.projectDescription}
+                        onChange={(e) => setProposalData({...proposalData, projectDescription: e.target.value})}
+                        className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                      ></textarea>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-1">Tech Stack (comma separated)</label>
+                        <input 
+                          type="text" 
+                          required placeholder="e.g., React, Node, Python"
+                          value={proposalData.techStack}
+                          onChange={(e) => setProposalData({...proposalData, techStack: e.target.value})}
+                          className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-1">Tools (comma separated)</label>
+                        <input 
+                          type="text" 
+                          placeholder="e.g., Git, Docker, Figma"
+                          value={proposalData.tools}
+                          onChange={(e) => setProposalData({...proposalData, tools: e.target.value})}
+                          className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex gap-3 justify-end pt-2">
+                      <button 
+                        type="button" 
+                        onClick={() => setIsEditingProposal(false)}
+                        className="px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+                      >
+                        Cancel
+                      </button>
+                      <button 
+                        type="submit" 
+                        disabled={isProcessing}
+                        className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium disabled:opacity-50"
+                      >
+                        <Save className="w-4 h-4" /> Save Proposal
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  <div className="space-y-6">
+                    {group.projectTitle ? (
+                      <>
+                        <div>
+                          <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-1">Title</h3>
+                          <p className="text-lg font-bold text-gray-900">{group.projectTitle}</p>
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-1">Problem Statement</h3>
+                          <p className="text-gray-700 leading-relaxed">{group.problemStatement}</p>
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-1">Description</h3>
+                          <p className="text-gray-700 leading-relaxed">{group.projectDescription}</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Tech Stack</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {group.techStack?.map((t, i) => (
+                                <span key={i} className="px-2.5 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-bold border border-blue-100">{t}</span>
+                              ))}
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Tools</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {group.tools?.map((t, i) => (
+                                <span key={i} className="px-2.5 py-1 bg-gray-100 text-gray-700 rounded-md text-xs font-bold border border-gray-200">{t}</span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="text-center py-8">
+                        <Target className="w-12 h-12 text-gray-200 mx-auto mb-3" />
+                        <p className="text-gray-500 mb-4">No project proposal has been created yet.</p>
+                        <button 
+                          onClick={() => setIsEditingProposal(true)}
+                          className="bg-indigo-600 text-white px-5 py-2 rounded-xl font-medium shadow-sm hover:bg-indigo-700 transition-all"
+                        >
+                          Draft Proposal
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
 
             {/* Group Chat / Activity Placeholder */}
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 text-center">

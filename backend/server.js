@@ -24,6 +24,8 @@ app.use('/api/profile', require('./routes/profile'));
 app.use('/api/project-notices', require('./routes/projectNotice'));
 app.use('/api/groups', require('./routes/group'));
 app.use('/api/chat', require('./routes/chat'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/room-bookings', require('./routes/roomBooking'));
 app.get('/api/health', (req, res) => res.send('API is running...'));
 
 const http = require('http');

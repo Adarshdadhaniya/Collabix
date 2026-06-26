@@ -1,6 +1,6 @@
 // database/init.js
 
-const mongoose = require('mongoose');
+const mongoose = require('../backend/node_modules/mongoose');
 
 // ✅ ENRICHED STUDENT SCHEMA
 const StudentSchema = new mongoose.Schema({
